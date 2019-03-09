@@ -1,11 +1,11 @@
-# MicroDonuts: An OpenTracing SpecialAgent Sample Application
+# MicroDonuts: An OpenTracing SpecialAgent Demo
 
 Welcome to MicroDonuts! This is a [SpecialAgent](https://github.com/opentracing-contrib/java-specialagent)
-sample application, written in Java, based on the original [OpenTracing walkthrough](https://github.com/opentracing-contrib/java-opentracing-walkthrough).
+demo application, written in Java, based on the original [OpenTracing walkthrough](https://github.com/opentracing-contrib/java-opentracing-walkthrough).
 
 OpenTracing is a vendor-neutral, open standard for distributed tracing. To
 learn more, check out [opentracing.io](http://opentracing.io), and try the
-sample application below!
+demo application below!
 
 ## Step 0: Setup MicroDonuts
 
@@ -14,8 +14,8 @@ Clone this repository and build the jar file (for this, Maven must be
 installed):
 
 ```
-git clone git@github.com:opentracing-contrib/java-opentracing-specialagent-sampleapp.git
-cd java-opentracing-specialagent-sampleapp/microdonuts
+git clone git@github.com:opentracing-contrib/java-opentracing-specialagent-demo.git
+cd java-opentracing-specialagent-demo/microdonuts
 mvn package
 ```
 
@@ -26,7 +26,7 @@ communicate each other over HTTP - they are, however, part of
 the same process:
 
 ```
-cd java-opentracing-specialagent-sampleapp/microdonuts
+cd java-opentracing-specialagent-demo/microdonuts
 mvn package exec:exec
 ```
 
