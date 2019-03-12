@@ -50,6 +50,7 @@ To run MicroDonuts with Jaegger, configuration has to be specified through
 [environment variables](https://github.com/jaegertracing/jaeger-client-java/blob/master/jaeger-core/README.md):
 
 ```bash
+cd microdonuts
 env JAEGER_SERVICE_NAME=MicroDonuts make run-with-jaeger
 ```
 
@@ -67,6 +68,7 @@ ls.accessToken=XXXXXXXXXXXXXXX  // TODO: replace with your token
 To run MicroDonuts with LightStep:
 
 ```bash
+cd microdonuts
 make run-with-lightstep
 ```
 
@@ -75,7 +77,8 @@ make run-with-lightstep
 A provided jar containing a `TracerFactory` provider can be used to run MicroDonuts too:
 
 ```bash
-env TRACER_JAR=MyOwnTracer.jar make run-with-tracer
+cd microdonuts
+env TRACER_JAR=MyOwnTracer.jar make run-with-tracer-jar
 ```
 
 Now that we're all hooked up, try ordering some donuts in the browser. You
