@@ -35,7 +35,6 @@ public class ApiContextHandler extends ServletContextHandler
         kitchenConsumer = new KitchenConsumer();
         addServlet(new ServletHolder(new OrderServlet(kitchenConsumer)), "/order");
         addServlet(new ServletHolder(new StatusServlet(kitchenConsumer)), "/status");
-        addServlet(new ServletHolder(new ConfigServlet(config)), "/config.js");
     }
 
     static final class OrderServlet extends HttpServlet
@@ -121,41 +120,4 @@ public class ApiContextHandler extends ServletContextHandler
             Utils.writeJSON(response, statusRes);
         }
     }
-
-    static final class ConfigServlet extends HttpServlet
-    {
-        Properties config;
-
-        public ConfigServlet(Properties config)
-        {
-            this.config = config;
-        }
-
-        @Override
-        public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException
-        {
-            PrintWriter writer = response.getWriter();
-            writer.println(createConfigBody());
-            writer.close();
-        }
-
-        String createConfigBody ()
-        {
-            String body = ""
-                + "var Config = {"
-                + "    tracer: \"%s\","
-                + "    tracer_host: \"%s\","
-                + "    tracer_port: %s,"
-                + "    tracer_access_token: \"%s\","
-                + "}";
-
-            return String.format(body,
-                    config.getProperty("tracer"),
-                    config.getProperty("tracer_host"),
-                    config.getProperty("tracer_port"),
-                    config.getProperty("tracer_access_token"));
-        }
-    }
 }
-

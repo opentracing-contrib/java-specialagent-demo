@@ -13,8 +13,6 @@ import org.eclipse.jetty.servlet.FilterHolder;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 
-import io.opentracing.contrib.web.servlet.filter.TracingFilter;
-
 import com.otsample.api.resources.*;
 
 public class KitchenContextHandler extends ServletContextHandler

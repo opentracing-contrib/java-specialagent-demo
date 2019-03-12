@@ -42,7 +42,7 @@ public class App
     static Properties loadConfig(String [] args)
         throws IOException
     {
-        String file = "tracer_config.properties";
+        String file = "config.properties";
         if (args.length > 0)
             file = args[0];
 

@@ -16,7 +16,7 @@ installed):
 ```
 git clone git@github.com:opentracing-contrib/java-opentracing-specialagent-demo.git
 cd java-opentracing-specialagent-demo/microdonuts
-mvn package
+make
 ```
 
 ### Running
@@ -27,16 +27,16 @@ the same process:
 
 ```
 cd java-opentracing-specialagent-demo/microdonuts
-mvn package exec:exec
+mvn run-no-agent
 ```
 
 In your web broswer, navigate to http://127.0.0.1:10001 and order yourself some
 µ-donuts.
 
-### Provide a TracerFactory jar.
+### Run with the SpecialAgent and a Tracer
 
-A jar containing a [TracerFactory](https://github.com/opentracing-contrib/java-tracerresolver) providing a `Tracer` is required,
-such as `jaeger.jar` or `lightstep.jar`.
+A jar containing a [TracerFactory](https://github.com/opentracing-contrib/java-tracerresolver) providing a `Tracer` is required.
+This demo includes jars for Jaeger and LightStep, but other `Tracer` jars can be provided.
 
 #### Jaeger
 
@@ -46,27 +46,40 @@ To run Jaeger locally (via Docker):
 $ docker run -d -p 5775:5775/udp -p 16686:16686 jaegertracing/all-in-one:latest
 ```
 
-Then add the following to `microdonuts/tracer_config.properties`:
+To run MicroDonuts with Jaegger, configuration has to be specified through
+[environment variables](https://github.com/jaegertracing/jaeger-client-java/blob/master/jaeger-core/README.md):
 
-```properties
-JAEGER_SERVICE_NAME=MicroDonuts
+```bash
+cd microdonuts
+env JAEGER_SERVICE_NAME=MicroDonuts make run-with-jaeger
 ```
 
 Note that the all-in-one docker image presents the Jaeger UI at [localhost:16686](http://localhost:16686/).
 
 #### LightStep
 
-If you have access to [LightStep](https://app.lightstep.com]), you will need your access token. Add the following to `microdonuts/tracer_config.properties`:
+If you have access to [LightStep](https://app.lightstep.com]), you will need your access token. Add the following to `tracers/ls_config.properties`:
 
 ```properties
-ls.collectorProtocol=https
-ls.collectorHost=collector.lightstep.com
-ls.collectorPort=443
 ls.componentName=MicroDonuts
 ls.accessToken=XXXXXXXXXXXXXXX  // TODO: replace with your token
 ```
 
-### Check it out in your Tracer
+To run MicroDonuts with LightStep:
+
+```bash
+cd microdonuts
+make run-with-lightstep
+```
+
+### Provide your own Tracer
+
+A provided jar containing a `TracerFactory` provider can be used to run MicroDonuts too:
+
+```bash
+cd microdonuts
+env TRACER_JAR=MyOwnTracer.jar make run-with-tracer-jar
+```
 
 Now that we're all hooked up, try ordering some donuts in the browser. You
 should see the traces appear in your tracer.
