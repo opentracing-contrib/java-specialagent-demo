@@ -46,7 +46,8 @@ To run Jaeger locally (via Docker):
 $ docker run -d -p 5775:5775/udp -p 16686:16686 jaegertracing/all-in-one:latest
 ```
 
-To run MicroDonuts with Jaegger, configuration has to be specified through [environment variables]():
+To run MicroDonuts with Jaegger, configuration has to be specified through
+[environment variables](https://github.com/jaegertracing/jaeger-client-java/blob/master/jaeger-core/README.md):
 
 ```bash
 env JAEGER_SERVICE_NAME=MicroDonuts make run-with-jaeger
