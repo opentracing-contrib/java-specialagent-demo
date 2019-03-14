@@ -14,8 +14,8 @@ Clone this repository and build the jar file (for this, Maven must be
 installed):
 
 ```
-git clone git@github.com:opentracing-contrib/java-opentracing-specialagent-demo.git
-cd java-opentracing-specialagent-demo/microdonuts
+git clone git@github.com:opentracing-contrib/java-specialagent-demo.git
+cd java-specialagent-demo/microdonuts
 make
 ```
 
@@ -26,7 +26,7 @@ communicate each other over HTTP - they are, however, part of
 the same process:
 
 ```
-cd java-opentracing-specialagent-demo/microdonuts
+cd java-specialagent-demo/microdonuts
 mvn run-no-agent
 ```
 
