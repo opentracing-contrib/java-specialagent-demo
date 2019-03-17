@@ -27,7 +27,7 @@ the same process:
 
 ```
 cd java-specialagent-demo/microdonuts
-mvn run-no-agent
+make run-no-agent
 ```
 
 In your web broswer, navigate to http://127.0.0.1:10001 and order yourself some
@@ -35,8 +35,12 @@ In your web broswer, navigate to http://127.0.0.1:10001 and order yourself some
 
 ### Run with the SpecialAgent and a Tracer
 
-A jar containing a [TracerFactory](https://github.com/opentracing-contrib/java-tracerresolver) providing a `Tracer` is required.
-This demo includes jars for Jaeger and LightStep, but other `Tracer` jars can be provided.
+First of all, download the [SpecialAgent jar](https://search.maven.org/remotecontent?filepath=io/opentracing/contrib/specialagent/opentracing-specialagent/1.0.0/opentracing-specialagent-1.0.0.jar)
+and move it to the microdonuts directory:
+
+```sh
+mv opentracing-specialagent-1.0.0.jar microdonuts/
+```
 
 #### Jaeger
 
@@ -51,17 +55,16 @@ To run MicroDonuts with Jaegger, configuration has to be specified through
 
 ```bash
 cd microdonuts
-env JAEGER_SERVICE_NAME=MicroDonuts make run-with-jaeger
+make run-with-jaeger
 ```
 
 Note that the all-in-one docker image presents the Jaeger UI at [localhost:16686](http://localhost:16686/).
 
 #### LightStep
 
-If you have access to [LightStep](https://app.lightstep.com]), you will need your access token. Add the following to `tracers/ls_config.properties`:
+If you have access to [LightStep](https://app.lightstep.com]), you will need your access token. Add the following to `ls_config.properties`:
 
 ```properties
-ls.componentName=MicroDonuts
 ls.accessToken=XXXXXXXXXXXXXXX  // TODO: replace with your token
 ```
 
@@ -74,7 +77,7 @@ make run-with-lightstep
 
 ### Provide your own Tracer
 
-A provided jar containing a `TracerFactory` provider can be used to run MicroDonuts too:
+A provided jar containing any `TracerFactory` provider can be used to run MicroDonuts too:
 
 ```bash
 cd microdonuts
