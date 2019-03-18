@@ -1,0 +1,19 @@
+sudo: false
+dist: trusty
+
+cache:
+  directories:
+  - $HOME/.m2
+
+language: java
+
+jdk:
+  - oraclejdk8
+
+addons:
+  apt:
+    packages:
+      - oracle-java8-installer
+
+script:
+  - cd microdonuts && make build

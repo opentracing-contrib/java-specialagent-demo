@@ -1,5 +1,7 @@
 # MicroDonuts: An OpenTracing SpecialAgent Demo
 
+[![Build Status](https://travis-ci.org/opentracing-contrib/java-specialagent-demo.png)](https://travis-ci.org/opentracing-contrib/java-specialagent-demo)
+
 Welcome to MicroDonuts! This is a [SpecialAgent](https://github.com/opentracing-contrib/java-specialagent)
 demo application, written in Java, based on the original [OpenTracing walkthrough](https://github.com/opentracing-contrib/java-opentracing-walkthrough).
 
