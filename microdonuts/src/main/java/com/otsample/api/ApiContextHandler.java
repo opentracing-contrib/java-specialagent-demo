@@ -18,6 +18,8 @@ import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 
 import com.otsample.api.resources.*;
+import io.opentracing.Tracer;
+import io.opentracing.util.GlobalTracer;
 
 public class ApiContextHandler extends ServletContextHandler
 {
@@ -57,6 +59,9 @@ public class ApiContextHandler extends ServletContextHandler
             }
 
             String orderId = UUID.randomUUID().toString();
+            if (GlobalTracer.get().activeSpan() != null) {
+                GlobalTracer.get().activeSpan().setTag("order.id", orderId);
+            }
 
             for (DonutRequest donutReq : donutsInfo)
                 for (int i = 0; i < donutReq.getQuantity(); i++)
