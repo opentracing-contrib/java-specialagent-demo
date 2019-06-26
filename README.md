@@ -15,7 +15,7 @@ demo application below!
 Clone this repository and build the jar file (for this, Maven must be
 installed):
 
-```
+```bash
 git clone git@github.com:opentracing-contrib/java-specialagent-demo.git
 cd java-specialagent-demo/microdonuts
 make
@@ -27,7 +27,7 @@ MicroDonuts has two server components, `API` and `Kitchen`, which
 communicate each other over HTTP - they are, however, part of
 the same process:
 
-```
+```bash
 cd java-specialagent-demo/microdonuts
 make run-no-agent
 ```
@@ -37,11 +37,11 @@ In your web broswer, navigate to http://127.0.0.1:10001 and order yourself some
 
 ### Run with the SpecialAgent and a Tracer
 
-First of all, download the [SpecialAgent jar](https://search.maven.org/remotecontent?filepath=io/opentracing/contrib/specialagent/opentracing-specialagent/1.0.0/opentracing-specialagent-1.0.0.jar)
+First, please download the latest [SpecialAgent JAR](https://repository.sonatype.org/service/local/artifact/maven/redirect?r=central-proxy&g=io.opentracing.contrib.specialagent&a=opentracing-specialagent&v=LATEST)
 and move it to the microdonuts directory:
 
-```sh
-mv opentracing-specialagent-1.0.0.jar microdonuts/
+```bash
+mv opentracing-specialagent-*.jar microdonuts/
 ```
 
 #### Jaeger
@@ -95,7 +95,7 @@ patterns of requests that occur when you click the order button.
 ## Thanks for playing, and welcome to OpenTracing!
 
 Thanks for joining us in this walkthrough! Hope you enjoyed it. If you did, let
-us know, and consider spreading the love! 
+us know, and consider spreading the love!
 
 A great way to get the feel for OpenTracing is to try your hand at
 instrumenting the OSS servers, frameworks, and client libraries that we all
