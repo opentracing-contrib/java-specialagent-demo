@@ -64,7 +64,7 @@ Note that the all-in-one docker image presents the Jaeger UI at [localhost:16686
 
 #### LightStep
 
-If you have access to [LightStep](https://app.lightstep.com]), you will need your access token. Add the following to `ls_config.properties`:
+If you have access to [LightStep](https://go.lightstep.com/tracing.html), you will need your access token. Add the following to `ls_config.properties`:
 
 ```properties
 ls.accessToken=XXXXXXXXXXXXXXX  // TODO: replace with your token
