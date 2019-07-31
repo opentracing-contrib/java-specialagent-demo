@@ -19,7 +19,7 @@ run-with-lightstep: build $(SPECIALAGENT_JAR)
 	java -cp $(MICRODONUTS_JAR) -javaagent:$(SPECIALAGENT_JAR) \
 		-Dsa.tracer=lightstep \
 		-Dsa.log.level=$(LOGLEVEL) \
-		-Dtracer.configurationFile=ls_tracer.properties \
+		-Dsa.config=ls_tracer.properties \
 		-Dls.componentName=$(SERVICE_NAME) \
 		com.otsample.api.App
 
